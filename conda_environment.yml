@@ -1,0 +1,13 @@
+name: Cluster_Coloc_Analyzer
+dependencies:
+  - python 3.7
+  - os
+  - configparser
+  - h5py
+  - numpy
+  - numba
+  - matplotlib
+  - yaml
+  - math
+  - collections
+  - sys

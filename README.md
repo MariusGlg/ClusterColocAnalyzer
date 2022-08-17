@@ -1,2 +1,29 @@
 # ClusterColocAnalyzer
-Analyzes two picasso DBSCAN files (from a two-target SMLM experiment, _dbclusters.hdf5) for cluster colocalization based on user defined distance threshold. Saves individual, colocalizing single-molecule cluster information (centroid coordinates, size, number of molecules etc.) as a new picasso compatible _dbcluster.hdf5
+The script loads two picasso DBSCAN files (_dbcluster, contains cluster information) and calculates the euclidean
+distance between all cluster centroids. If the distance is below a user defined threshold, it is defined
+as colocalization and the DBSCAN cluster information (x, y position, cluster size etc.) are extracted 
+from the dataset and saved seperately. The script intends to detect rare colocalization within two-target
+SMLM experiments and allows the seperate analysis of these clusters. 
+- Loads HDF5 files (Picasso DBSCAN files (dbcluster.hdf5))
+- calculate the euclidean distance between cluster centroids
+- user defined threshold defines colocalization between clusters
+- information from clusters that colocalize are saved seperately (as .hdf5) for further analysis 
+
+Requirements: python 3.7, os, configparser, h5py, numpy, matplotlib, yaml, numba, math, collections, sys
+
+Input file: Picasso[1] hdf5 (picasso dbscan file)
+
+Execution: ClusterColocAnalyzer.py
+
+Config file: 
+
+[INPUT_FILES]
+path1/2: path to picasso dbscan files 
+filename: name of picasso dbscan file (name.hdf5)
+
+[PARAMETERS]
+max_dist:  maximal distance allowed for allocation of colocalization (in pixel)
+
+links: 
+[1] https://github.com/jungmannlab/picasso
+
