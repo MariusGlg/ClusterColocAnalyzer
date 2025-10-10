@@ -11,3 +11,4 @@ dependencies:
   - math
   - collections
   - sys
+  - pandas
